@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Student Records</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="node_modules/sweetalert/dist/sweetalert.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Student Records</a>
+        </div>
+    </nav><br>
+    <section class="container">
+        <div class="row">
+            <div class="col s2 offset-s2">
+                <button id="add" class="btn-large">Add Student</button>
+            </div>
+            <div class="col s2">
+                <button id="print" class="btn-large">Print All</button>
+            </div>
+            <div class="col s2">
+                <button id="update" class="btn-large">Update Dropout</button>
+            </div>
+            <div class="col s2">
+                <button id="top-hse" class="btn-large">Run Employability</button>
+            </div>
+        </div>
+
+        <dialog id="dialog" hide style="border: none; border-radius: 10px; ">
+            <div style="background-color: #26a69a; padding: 10px;  border-radius: 10px; margin-bottom: 25px; color:aliceblue">
+                <h5 class="center-align">Add new student</h5>
+            </div>
+            <div>
+                <div class="input-field">
+                    <i class="fa fa-user-circle-o prefix" aria-hidden="true"></i>
+                    <label for="name" class="active">Student Name</label>
+                    <input id="name" type="text" class="validate" maxlength="30">
+                    
+                </div>
+                <div class="input-field">
+                    <i class="fa fa-code prefix" aria-hidden="true"></i>
+                    <label for="techPoints" class="active">Tech Skill Points (0-100%)</label>
+                    <input type="range" id="techPoints" min="0" max="100" style="padding: 15px 0;" />
+                </div>
+                <div class="input-field">
+                    <i class="fa fa-handshake-o prefix" aria-hidden="true"></i>
+                    <label for="lifePoints" class="active">Life Skill Points (0-100%)</label>
+                    <input type="range" id="lifePoints" min="0" max="100" style="padding: 15px 0;" />
+                </div>
+            </div>
+            <div align="right">
+                <button id="agregar" class="btn btn-primary">Add</button>
+                <button id="close" class="btn btn-secondary">Cancel</button>
+            </div>
+        </dialog>
+
+    </section>
+    
+    <section id="resultado">
+        <h4 hidden> o</h4>
+        <div id="contenedor-estudiantes"> </div>
+    </section>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/vendor/dont-look-at-me.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
