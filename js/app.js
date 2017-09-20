@@ -120,7 +120,10 @@ function buscar(name, studentsArray) {
 
 function updateDropout(studentsArray){
     if(Array.isArray(studentsArray)){
-        studentsArray.filter(ele)
+        return studentsArray.filter(element => {
+            let pointAverage = (parseInt(element.techPoints) + parseInt(element.lifePoints))/2;
+            return pointAverage > 70;
+        });
     };
 }
 

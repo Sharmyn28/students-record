@@ -6,7 +6,7 @@
         resultado.innerHTML = showInfo(student);
     };
 
-    let eventoMostrar = function (e) {
+    let printInfo = function (e) {
         let students = getStudentsList();
         resultado.innerHTML = showStudentList(students);
     };
@@ -18,16 +18,22 @@
         resultado.innerHTML = showStudentList(estudiantesTopTecnico);
     };
 
+    let update = function (e) {
+        let students = getStudentsList();
+        let updateList = updateDropout(students);
+        resultado.innerHTML = showStudentList(updateList);
+    };
+
     // Manejadores de eventos
     //botonAgregar.addEventListener("click", eventoAgregar);
     $('#agregar').on('click', function(){
         addStudent();
     });
     $('#print').on('click', function(){
-        eventoMostrar();
+        printInfo();
     });
     $('#update').on('click', function(){
-        addStudent();
+        update();
     });
     $('#add').on('click', function(){
         dialog.showModal(); 
