@@ -11,21 +11,24 @@
         resultado.innerHTML = showStudentList(students);
     };
 
-    let eventoTopTecnico = function (e) {
-        e.preventDefault();
-        let students = getStudentsList();
-        var estudiantesTopTecnico = topTecnico(students);
-        resultado.innerHTML = showStudentList(estudiantesTopTecnico);
+    let update = function (e) {
+        let newStudents = getStudentsList();
+        newStudents = updateDropout(newStudents);
+        let length = students.length - 1;
+        console.log(students);
+        students.splice(0, length);
+        students.push(newStudents);
+        console.log(students);
+        resultado.innerHTML = showStudentList(newStudents);
     };
 
-    let update = function (e) {
+    let runningEmployability = function (e) {
         let students = getStudentsList();
-        let updateList = updateDropout(students);
+        let updateList = updateEmployability(students);
         resultado.innerHTML = showStudentList(updateList);
     };
 
-    // Manejadores de eventos
-    //botonAgregar.addEventListener("click", eventoAgregar);
+
     $('#agregar').on('click', function(){
         addStudent();
     });
@@ -34,6 +37,9 @@
     });
     $('#update').on('click', function(){
         update();
+    });
+    $('#employability').on('click', function(){
+        runningEmployability();
     });
     $('#add').on('click', function(){
         dialog.showModal(); 

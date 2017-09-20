@@ -43,22 +43,22 @@ function showInfo(student) {
     }
     return studentInfo;
 }
-//pruebas unitarias para posibles entradas del modulo mostrar(estudiante)
+//pruebas unitarias para posibles entradas del modulo showInfo(student)
 /*describe("funcion que muestra un estudiante ", function() {
     it("el resultado deberia ser '' si no se ingresa un objeto estudiante", function() {
-        var res = mostrar();
+        var res = showInfo();
         assert.equal('', res);
     });
     it("el resultado deberia ser '' si es estudiante es undefined", function() {
-        var res = mostrar(undefined);
+        var res = showInfo(undefined);
         assert.equal("", res);
     });
     it("el resultado deberia ser '' si estudiante es un string", function() {
-        var res = mostrar("hola mundo");
+        var res = showInfo('hola mundo');
         assert.equal("", res);
     });
     it("el resultado deberia ser '' si estudiante es un array", function() {
-        var res = mostrar([1, 2, 3, 4]);
+        var res = showInfo([1, 2, 3, 4]);
         assert.equal("", res);
     });
 });*/
@@ -72,49 +72,19 @@ function showStudentList(studentsArray) {
     }
     return studentList;
 }
-//pruebas unitarias para posibles entradas de la funcion mostrarLista(estudiante)
+//pruebas unitarias para posibles entradas de la funcion showStudentList(studentsArray)
 /*describe("funcion que muestra la lista de estudiantes ", function() {
     it("el resultado deberia ser '' si no se ingresa un array de estudiantes", function() {
-        var res = mostrarLista();
+        var res = showStudentList();
         assert.equal('', res);
     });
     it("el resultado deberia ser '' si es estudiante es undefined", function() {
-        var res = mostrarLista(undefined);
+        var res = showStudentList(undefined);
         assert.equal("", res);
     });
     it("el resultado deberia ser '' si estudiante es un string", function() {
-        var res = mostrarLista("string de lista de estudiantes");
+        var res = showStudentList('string de lista de estudiante');
         assert.equal("", res);
-    });
-});*/
-
-
-function buscar(name, studentsArray) {
-    // TO DO: Buscar el nombre en la lista de estudiantes que se recibe por parámetros
-    // Retornar el objeto del estudiante buscado
-    // Nota: NO IMPORTA SI EL USUARIO ESCRIBE EL NOMBRE EN MAYÚSCULAS O MINÚSCULAS
-    if (name != null && name != undefined && name != '' && Array.isArray(studentsArray)) {
-        return studentsArray.filter(element => {
-            return name.toLowerCase() == element.nombre.toLowerCase() // filtramos por aquellos que tengan el mismo nombre eliminamos case sensitive
-        });
-        //swal("Estudiante no Encontrado", "Mensaje del sistema", "warning");
-    } else
-        return studentsArray;
-
-}
-//pruebas unitarias para buscar un estudiante
-/*describe("funcion que busca un estudiante ", function() {
-    it("el resultado deberia ser la lista de estudiantes si no se ingresa un nombre", function() {
-        var res = mostrarLista(students);
-        assert.equal(students, res);
-    });
-    it("el resultado deberia ser la lista de estudiantes si estudiante es undefined", function() {
-        var res = mostrarLista(undefined, students);
-        assert.equal(students, res);
-    });
-    it("el resultado deberia ser la lista de estudiantes si estudiante es null", function() {
-        var res = mostrarLista(null, students);
-        assert.equal(students, res);
     });
 });*/
 
@@ -127,28 +97,11 @@ function updateDropout(studentsArray){
     };
 }
 
-function topTecnico(studentsArray) {
-    // TO DO: Retornar el arreglo de estudiantes ordenado por puntaje técnico de mayor a menor
-    if (Array.isArray(studentsArray)) {
-        return studentsArray.sort((n, m) => {
-            return m.techPoints - n.techPoints; // ordenamos de mayor a menor
+function updateEmployability(studentsArray){
+    if(Array.isArray(studentsArray)){
+        return studentsArray.filter(element => {
+            let pointAverage = (parseInt(element.techPoints) + parseInt(element.lifePoints))/2;
+            return pointAverage > 70;
         });
-    } else
-        return [];
+    };
 }
-//pruebas unitarias para el modulo topTecnico
-/*describe("funcion que lista los estudiantes segun un orden de puntos Tecnicos ", function() {
-    it("el resultado deberia ser un arreglo vacio si estudiantes es un string", function() {
-        var res = topTecnico("string o cadena");
-        assert.deepEqual([], res);
-    });
-    it("el resultado deberia ser un arreglo vacio si no ingresa el parametro estudiantes", function() {
-        var res = topTecnico();
-        assert.deepEqual([], res);
-    });
-    it("el resultado deberia ser un arreglo vacio si ingresa un numero", function() {
-        var res = topTecnico(0);
-        assert.deepEqual([], res);
-    });
-});*/
-
