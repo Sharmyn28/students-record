@@ -1,35 +1,28 @@
 +function () {
-    var resultado = document.getElementById("contenedor-estudiantes");
-
+    let results = document.getElementById("studentResults");
+   
     let addStudent = function (e) {
         let student = addNewStudent();
-        resultado.innerHTML = showInfo(student);
+        results.innerHTML = showInfo(student);
     };
 
     let printInfo = function (e) {
         let students = getStudentsList();
-        resultado.innerHTML = showStudentList(students);
+        results.innerHTML = showStudentList(students);
     };
 
     let update = function (e) {
-        let newStudents = getStudentsList();
-        newStudents = updateDropout(newStudents);
-        let length = students.length - 1;
-        console.log(students);
-        students.splice(0, length);
-        students.push(newStudents);
-        console.log(students);
-        resultado.innerHTML = showStudentList(newStudents);
+        students = updateList(students);
+        results.innerHTML = showStudentList(students);
     };
 
     let runningEmployability = function (e) {
         let students = getStudentsList();
-        let updateList = updateEmployability(students);
-        resultado.innerHTML = showStudentList(updateList);
+        let updateStudentList = updateList(students);
+        results.innerHTML = showStudentList(updateStudentList);
     };
 
-
-    $('#agregar').on('click', function(){
+    $('#add_btn').on('click', function(){
         addStudent();
     });
     $('#print').on('click', function(){
