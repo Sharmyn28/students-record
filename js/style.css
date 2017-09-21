@@ -1,0 +1,17 @@
+
+.dialog_outside{
+    border: none; 
+    border-radius: 10px !important;
+}
+
+.dialog_inside{
+    background-color: #26a69a; 
+    padding: 10px;  
+    border-radius: 10px; 
+    margin-bottom: 25px; 
+    color:aliceblue;
+}
+
+.card{
+    width: 65%;
+}
