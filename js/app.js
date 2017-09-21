@@ -30,8 +30,8 @@ function showInfo(student) {
     let studentInfo = "";
     if (typeof student == "object" && (student != null || student != undefined) && !Array.isArray(student)) {
         studentInfo = `<div class='row'> \
-                            <div class='col m12'> \
-                                <div class='card blue-grey darken-1'> \
+                            <div class='col m4 offset-m4 col s4 offset-s4'> \
+                                <div class='card blue-grey darken-1 '> \
                                     <div class='card-content white-text'> \
                                         <p><strong>NAME:  </strong>${(student.name != undefined ? student.name : "Sorry, this action impossible to complete")}</p>\
                                         <p><strong>TECH SKILL POINTS:  </strong> ${(student.techPoints != undefined ? student.techPoints + '%' : "Sorry, this action impossible to complete")}</p>\
