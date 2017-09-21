@@ -96,3 +96,47 @@ function updateList(studentsArray){
         });
     };
 }
+
+function init() {
+    let results = $("#studentResults");
+
+    let addStudent = function (e) {
+        let student = addNewStudent();
+        results.html(showInfo(student));
+    };
+
+    let printInfo = function (e) {
+        let students = getStudentsList();
+        results.html(showStudentList(students));
+    };
+
+    let update = function (e) {
+        students = updateList(students);
+        results.html(showStudentList(students));
+    };
+
+    let runningEmployability = function (e) {
+        let students = getStudentsList();
+        let updateStudentList = updateList(students);
+        results.html(showStudentList(updateStudentList));
+    };
+
+    $('#add_btn').on('click', function(){
+        addStudent();
+    });
+    $('#print').on('click', function(){
+        printInfo();
+    });
+    $('#update').on('click', function(){
+        update();
+    });
+    $('#employability').on('click', function(){
+        runningEmployability();
+    });
+    $('#add').on('click', function(){
+        dialog.showModal(); 
+    });
+    $('#close').on('click', function(){
+        dialog.close();
+    });
+}init();
